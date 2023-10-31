@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-// import url from '../../../../public/data.json';
 import SingleCard from '../SingleCard/SingleCard';
+import url from '../../Data/data.json';
 const Card = (props) => {
     const [cards,setCard] = useState([]);
+    
     useEffect(()=>{
-        fetch('../../../../public/data.json')
+        fetch('/data.json')
         .then(res => res.json())
-        .then(data => setCard(data));
+        .then(data => {
+            setCard(data);
+            console.log(cards);
+        });
     },[])
     const handleBookNow = props.handleBookNow;
 
